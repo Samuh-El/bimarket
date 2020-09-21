@@ -189,33 +189,18 @@ class AppController {
     }
     signin(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { email, password } = req.body;
-            console.log(email);
+            const { name, password } = req.body;
+            console.log(name);
             console.log(password);
-            // var Admin={
-            //      idUsuario:0,
-            //      NombreUsuario:'',
-            //      Pyme_idPyme:'',
-            //      direccion:'',
-            //      celular:password,
-            //      correo:''
-            // }
             var Admin = {
-                idUsuario: 0,
-                NombreUsuario: '',
-                idPyme: 0,
-                link_OnePage: '',
-                almacen: -1
+                idUsuario: -1,
             };
             console.log("consulta a la db por correo y password");
-            const admin = yield database_1.default.query('SELECT u.idUsuario,u.NombreUsuario,u.Pyme_idPyme,p.link_OnePage,p.almacen FROM `usuario-administrador` as u INNER JOIN `pyme`as p ON u.Pyme_idPyme = p.idPyme WHERE u.correo=\'' + email + '\' AND u.ClaveUsuario=\'' + password + '\'');
+            const admin = yield database_1.default.query('SELECT idUsuario FROM `Usuario` WHERE nombreUsuario=\'' + name + '\' AND claveUsuario=\'' + password + '\'');
             if (admin.length > 0) {
-                // res.json(admin[0])
                 Admin = admin[0];
                 console.log('admin Admin= ' + Admin);
-                console.log('admin Admin= ' + Admin.NombreUsuario);
-                console.log('onePage Admin= ' + Admin.link_OnePage);
-                console.log('almacen Admin= ' + Admin.almacen);
+                console.log('admin id= ' + Admin.idUsuario);
                 const token = jsonwebtoken_1.default.sign({ _id: Admin.idUsuario }, 'secretkey');
                 return res.status(200).json({ Admin, token });
             }
