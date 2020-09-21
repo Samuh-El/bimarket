@@ -10,7 +10,8 @@ class AppController {
 
      public async listPlanes(req: Request, res: Response) {
           const data = await pool.query('SELECT * FROM `planes`');
-          res.json(data);
+        //   res.json(data);
+          res.json('holaaaa');
      } 
 
      public async getOne(req: Request, res: Response): Promise<any> {

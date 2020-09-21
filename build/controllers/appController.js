@@ -22,7 +22,8 @@ class AppController {
     listPlanes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = yield database_1.default.query('SELECT * FROM `planes`');
-            res.json(data);
+            //   res.json(data);
+            res.json('holaaaa');
         });
     }
     getOne(req, res) {
