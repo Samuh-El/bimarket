@@ -23,7 +23,7 @@ class AppRoutes {
      constructor() {
           this.config();
      }
-
+ 
      config(): void {
           this.router.get('/list-planes', appController.listPlanes);
           this.router.post('/send-email',appController.sendEmail);
