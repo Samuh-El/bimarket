@@ -26,7 +26,9 @@ class AppRoutes {
 
      config(): void {
           this.router.get('/list-planes', appController.listPlanes);
-          this.router.post('/send-email',appController.sendEmailUser);
+          this.router.post('/send-email',appController.sendEmail);
+          // this.router.put('/update-plan',appController.updatePlan);
+          this.router.put('/update-plan/:id', appController.updatePlan);
           this.router.post('/signin', appController.signin);
           this.router.get('/get-usuario/:id', appController.getUsuario);
           this.router.put('/update-plan/:id', appController.updateDatosEmpresariales);

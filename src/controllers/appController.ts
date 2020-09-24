@@ -14,6 +14,16 @@ class AppController {
         //   res.json('holaaaa');
      } 
 
+     public async updatePlan(req: Request, res: Response): Promise<void> {
+          const { idServicio } = req.body;
+          console.log(idServicio);
+          console.log(req.body);
+          await pool.query('UPDATE `Planes` set ? WHERE idServicio = ?', [req.body, req.params.id]);
+          console.log('UPDATE `Planes` set ? WHERE idServicio = ?', [req.body, req.params.id])
+          res.json(req.body)
+     }
+
+
      public async getOne(req: Request, res: Response): Promise<any> {
           const game = await pool.query('SELECT FROM games where id = ?', [req.params.id]);
           if (game.lenth > 0) {
@@ -91,45 +101,25 @@ class AppController {
 
 
 
-     public sendEmailUser(req: Request, res: Response) {
+     public sendEmail(req: Request, res: Response) {
+          console.log('llego al service nodejs')
           var contentHTML: any;
-          var correoDestino:string='';
-          const { nombre, correo, mensaje,pais } = req.body;
-
-
-if(pais=='chile'){
-     contentHTML = `
-     Informacion de usuario de Producto Chile
-     Nombre: ${nombre}
-     Correo: ${correo}
-     Mensaje: ${mensaje}
-    `
-    correoDestino='contacto@productochile.cl'
-}
-
-if(pais=='colombia'){
-     contentHTML = `
-     Informacion de usuario de Producto Colombia
-     Nombre: ${nombre}
-     Correo: ${correo}
-     Mensaje: ${mensaje}
-    `
-    correoDestino='gerencia@productocolombia.com.co'
-    
-}
-
-if(pais=='peru'){
-     contentHTML = `
-     Informacion de usuario de Producto Peru
-     Nombre: ${nombre}
-     Correo: ${correo}
-     Mensaje: ${mensaje}
-    `
-    correoDestino='contacto@productoperu.com.pe'
-    
-}
-
-       
+          var correoDestino:string='felipe.ascencio.sandoval@gmail.com';
+          const { Empresa, RutEmpresa, Website,Direccion,NombreRepLegal,RutRepLegal,Cargo,MailContacto,Telefono,CupoSolicitado,Mensaje } = req.body;
+          contentHTML = `
+          Solicitud Apertura Cuenta Cliente
+          Empresa: ${Empresa}
+          Rut Empresa: ${RutEmpresa}
+          Website: ${Website}
+          Direccion: ${Direccion}
+          Nombre Rep Legal: ${NombreRepLegal}
+          Rut Rep Legal: ${RutRepLegal}
+          Cargo: ${Cargo}
+          Mail Contacto: ${MailContacto}
+          Telefono: ${Telefono}
+          CupoSolicitado: ${CupoSolicitado}
+          Mensaje: ${Mensaje}
+         `
           console.log(contentHTML)
 
           let transporter = nodemailer.createTransport({
@@ -146,7 +136,7 @@ if(pais=='peru'){
           let mailOptions = {
                from: 'productochileoficial@gmail.com',
                to: correoDestino,
-               subject: 'PC Usuario correo= ' + correo, //este mensaje debe ir cambiando, asi no quedan todos juntos 
+               subject: 'Solicitud Apertura Cuenta Cliente Empresa= ' + Empresa,
                text: contentHTML 
           }; 
 

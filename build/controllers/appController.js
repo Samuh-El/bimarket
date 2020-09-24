@@ -26,6 +26,16 @@ class AppController {
             //   res.json('holaaaa');
         });
     }
+    updatePlan(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { idServicio } = req.body;
+            console.log(idServicio);
+            console.log(req.body);
+            yield database_1.default.query('UPDATE `Planes` set ? WHERE idServicio = ?', [req.body, req.params.id]);
+            console.log('UPDATE `Planes` set ? WHERE idServicio = ?', [req.body, req.params.id]);
+            res.json(req.body);
+        });
+    }
     getOne(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const game = yield database_1.default.query('SELECT FROM games where id = ?', [req.params.id]);
@@ -98,37 +108,25 @@ class AppController {
             }
         });
     }
-    sendEmailUser(req, res) {
+    sendEmail(req, res) {
+        console.log('llego al service nodejs');
         var contentHTML;
-        var correoDestino = '';
-        const { nombre, correo, mensaje, pais } = req.body;
-        if (pais == 'chile') {
-            contentHTML = `
-     Informacion de usuario de Producto Chile
-     Nombre: ${nombre}
-     Correo: ${correo}
-     Mensaje: ${mensaje}
-    `;
-            correoDestino = 'contacto@productochile.cl';
-        }
-        if (pais == 'colombia') {
-            contentHTML = `
-     Informacion de usuario de Producto Colombia
-     Nombre: ${nombre}
-     Correo: ${correo}
-     Mensaje: ${mensaje}
-    `;
-            correoDestino = 'gerencia@productocolombia.com.co';
-        }
-        if (pais == 'peru') {
-            contentHTML = `
-     Informacion de usuario de Producto Peru
-     Nombre: ${nombre}
-     Correo: ${correo}
-     Mensaje: ${mensaje}
-    `;
-            correoDestino = 'contacto@productoperu.com.pe';
-        }
+        var correoDestino = 'felipe.ascencio.sandoval@gmail.com';
+        const { Empresa, RutEmpresa, Website, Direccion, NombreRepLegal, RutRepLegal, Cargo, MailContacto, Telefono, CupoSolicitado, Mensaje } = req.body;
+        contentHTML = `
+          Solicitud Apertura Cuenta Cliente
+          Empresa: ${Empresa}
+          Rut Empresa: ${RutEmpresa}
+          Website: ${Website}
+          Direccion: ${Direccion}
+          Nombre Rep Legal: ${NombreRepLegal}
+          Rut Rep Legal: ${RutRepLegal}
+          Cargo: ${Cargo}
+          Mail Contacto: ${MailContacto}
+          Telefono: ${Telefono}
+          CupoSolicitado: ${CupoSolicitado}
+          Mensaje: ${Mensaje}
+         `;
         console.log(contentHTML);
         let transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -143,7 +141,7 @@ class AppController {
         let mailOptions = {
             from: 'productochileoficial@gmail.com',
             to: correoDestino,
-            subject: 'PC Usuario correo= ' + correo,
+            subject: 'Solicitud Apertura Cuenta Cliente Empresa= ' + Empresa,
             text: contentHTML
         };
         transporter.sendMail(mailOptions, (error, info) => {

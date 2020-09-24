@@ -23,7 +23,9 @@ class AppRoutes {
     }
     config() {
         this.router.get('/list-planes', appController_1.default.listPlanes);
-        this.router.post('/send-email', appController_1.default.sendEmailUser);
+        this.router.post('/send-email', appController_1.default.sendEmail);
+        // this.router.put('/update-plan',appController.updatePlan);
+        this.router.put('/update-plan/:id', appController_1.default.updatePlan);
         this.router.post('/signin', appController_1.default.signin);
         this.router.get('/get-usuario/:id', appController_1.default.getUsuario);
         this.router.put('/update-plan/:id', appController_1.default.updateDatosEmpresariales);
