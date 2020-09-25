@@ -18,7 +18,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 class AppController {
-    //metodos de practica
+    //metodos de practica 
     listPlanes(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const data = yield database_1.default.query('SELECT * FROM `Planes`');
@@ -36,6 +36,7 @@ class AppController {
             res.json(req.body);
         });
     }
+    //metodo que se usa cuando se llena el formulario, manda un correo a gerencia con los datos del formulario, y al hacerlo, manda un correo al cliente con un template html de comprobacion de dicha recepcion 
     sendEmail(req, res) {
         console.log('llego al service nodejs');
         var contentHTML;
@@ -159,15 +160,10 @@ class AppController {
                                <span class="size-p">Tu respuesta será enviada a tu e-mail dentro de las próximas 72 horas hábiles.
                                    Gracias por su confianza en BiMarketChile</span>
                            </div>
-                           <div class="col-12 col-lg-5 margen-boton alinear-boton" style="text-align: center;margin-top: 20px;">
-                               <a href="https://pruebas.genbuproducciones.com/#/home" target="_blank"><button style="background-color: #DC351F;color: white;padding: 10px;width: 40%;" class="btn btn-danger size-p">Solicitud de Servicios <span
-                                   style="border-bottom: 1px solid white;">Aquí</span></button></a>
-                           </div>
                        </div>
                </body>
                 
                </html>`;
-            console.log(contentHTML);
             let transporter = nodemailer.createTransport({
                 host: 'smtp.gmail.com',
                 port: 587,
@@ -181,7 +177,7 @@ class AppController {
             let mailOptions = {
                 from: 'noReplyNodo@gmail.com',
                 to: correoDestino,
-                subject: 'Comprobante recepción de su formulario..',
+                subject: 'Comprobante recepción de formulario por BiMarketChile',
                 html: contentHTML
             };
             transporter.sendMail(mailOptions, (error, info) => {
@@ -192,6 +188,7 @@ class AppController {
             });
         });
     }
+    //este metodo no se usa, va todo en el metodo anterior
     sendEmailCliente(emailCliente, res) {
         console.log('el email del cliente es= ' + emailCliente);
         console.log('llego al service nodejs');
