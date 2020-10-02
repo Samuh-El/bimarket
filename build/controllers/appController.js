@@ -26,6 +26,13 @@ class AppController {
             //   res.json('holaaaa'); 
         });
     }
+    getInfoCorreos(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = yield database_1.default.query('SELECT * FROM `Correo` WHERE estado = 0');
+            res.json(data);
+            //   res.json('holaaaa'); 
+        });
+    }
     updatePlan(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { idServicio } = req.body;
@@ -64,13 +71,13 @@ class AppController {
             secure: false,
             requireTLS: true,
             auth: {
-                user: 'noReplyNodo@gmail.com',
-                pass: 'soyunaprueba'
+                user: 'noreplyBimarketchile@gmail.com',
+                pass: 'bimaR3344'
             }
         });
         console.log('paso del transporter');
         let mailOptions = {
-            from: 'noReplyNodo@gmail.com',
+            from: 'noreplyBimarketchile@gmail.com',
             to: correoDestino,
             subject: 'Solicitud Apertura Cuenta Pyme : ' + Empresa,
             text: contentHTML
@@ -170,12 +177,12 @@ class AppController {
                 secure: false,
                 requireTLS: true,
                 auth: {
-                    user: 'noReplyNodo@gmail.com',
-                    pass: 'soyunaprueba'
+                    user: 'noreplyBimarketchile@gmail.com',
+                    pass: 'bimaR3344'
                 }
             });
             let mailOptions = {
-                from: 'noReplyNodo@gmail.com',
+                from: 'noreplyBimarketchile@gmail.com',
                 to: correoDestino,
                 subject: 'Comprobante recepción de formulario por BiMarketChile',
                 html: contentHTML
@@ -186,6 +193,166 @@ class AppController {
                 }
                 res.json({ text: 'enviado correctamente' });
             });
+        });
+    }
+    //metodo que envia un correo al cliente una vez haya realizado su compra
+    sendEmailCompratoCliente(req, res) {
+        const { idPlan, correo } = req.body;
+        console.log('idplan= ' + idPlan);
+        console.log('correo= ' + correo);
+        // res.json({ error: 'volvi ' })
+        // return;
+        console.log('llego al service nodejs');
+        var contentHTML;
+        var rutaContrato;
+        var correoDestino = correo;
+        console.log('correoDestino= ' + correoDestino);
+        if (idPlan == 0) {
+            rutaContrato = "https://pruebas.genbuproducciones.com/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf";
+        }
+        if (idPlan == 1) {
+            rutaContrato = "https://pruebas.genbuproducciones.com/PDF/Contrato%20E-Commerce%20&%20Transformacio%cc%81n.pdf%20Digital.pdf";
+        }
+        if (idPlan == 2) {
+            rutaContrato = "https://pruebas.genbuproducciones.com/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf";
+        }
+        contentHTML = `<!doctype html>
+          <html lang="en">
+          
+          <head>
+            <meta charset="utf-8">
+            <title>BI Market Chile</title>
+            <base href="/">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" type="image/x-icon" href="assets/FAVICON.png">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+          
+            <style>
+              .fondo
+          {
+          background: url('https://pruebas.genbuproducciones.com/Imagenes/imagenCorreo.png') no-repeat top center fixed;
+          -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+          background-size: cover;
+          min-height: 100vh;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          z-index: 0 !important;
+          } 
+          
+          /* Extra small devices (phones, 600px and down) */
+          @media only screen and (max-width: 767px) {
+          
+          .size-p{
+           font-size: 4vw !important; 
+          }
+          
+          .margen-boton{
+          margin-top: 50px;
+          }
+          
+          .alinear-boton{
+          text-align: center;
+          }
+          
+          
+          }
+          </style>
+          
+          </head>
+          
+          <body>
+              <div class="fondo p-5" style="color:white;font-size: 2vw;text-align: justify;padding: 30px;">
+          
+                  <div class="row mb-4">
+                      <div class="col-12 col-md-6 col-lg-3">
+                          <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png" alt="">
+                          <img style="margin-left:50px" width="28%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/1.png" alt="">
+                      </div>
+                     
+                  </div>
+                  <div class="row mt-5">
+                      <div class="col-12 col-lg-6 offset-lg-2 mb-4">
+                          <p class="size-p"><span style="font-weight: bold;">Bienvenidos</span> al Mundo de Servicios <span style="font-weight: bold;">BiMarketChile</span>
+                          </p>
+                      </div>
+                      <div class="col-12 col-lg-10">
+                          <span class="size-p">Recibirás tu contrato personalizado en este mail en 72 horas hábiles <br>
+                           Tu Cuenta Empresa BiMarketChile, te permite contratar y financiar linea de Servicios en Marketing, E-Commerce y Transformación Digital.
+                       </span>
+                      </div>
+
+                  </div>
+                  
+                  <div class="row mt-4" style="margin-top: 20px;">
+                      <div class="col-12 col-lg-7">
+                          <span class="size-p">Estamos siempre disponibles, comunícate con nosotros a</span>
+                      </div>
+                  </div>
+                  <div class="row mt-4"style="margin-top: 20px;">
+                   <div class="col-12 col-lg-7">
+                       <span class="size-p"><a style="color: white;">gerencia@bimarketchile.cl</a></span>
+                   </div>
+               </div>
+               <div class="row mt-4" style="margin-top: 20px;">
+                   <div class="col-12 col-lg-7">
+                       <span class="size-p">Telefono +56972186190</span>
+                   </div>
+               </div>
+               <div class="row mt-4" style="margin-top: 20px;">
+                   <div class="col-12 col-lg-7">
+                       <span class="size-p">Solicita tus servicios de Marketing, E-Commerce y Transformación Digital Aquí</span>
+                   </div>
+               </div>
+               <div class="row mt-4" style="text-align: center;margin-top: 20px;">
+                   <div class="col-12 col-lg-7">
+                      <a href="` + rutaContrato + `"><button class="btn btn-danger" style="padding: 10px;color: white;background-color: #DC351F;font-weight: bold;border:0">Solicitud de Servicios Aquí</button></a> 
+                   </div>
+               </div>
+          </body>
+           
+          </html>`;
+        // console.log(contentHTML)
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,
+            requireTLS: true,
+            auth: {
+                user: 'noreplyBimarketchile@gmail.com',
+                pass: 'bimaR3344'
+            }
+        });
+        console.log('antes del transporter');
+        let mailOptions = {
+            from: 'noreplyBimarketchile@gmail.com',
+            to: correoDestino,
+            subject: 'Comprobante de compra de plan',
+            html: contentHTML
+        };
+        console.log('despues de transporter');
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log('error en transporter');
+                res.json({ error: error });
+            }
+            console.log('paso el transporter');
+            var x = 'bien';
+            res.json('enviado correctamente');
+        });
+    }
+    deleteEmailInDb(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const id = req.params.id;
+            console.log(id);
+            console.log(req.body);
+            yield database_1.default.query('UPDATE `Correo` set estado = 1 WHERE id = ?', [req.params.id]);
+            console.log('UPDATE `Planes` set ? WHERE id = ?', [req.body, req.params.id]);
+            res.json(req.body);
         });
     }
     //este metodo no se usa, va todo en el metodo anterior

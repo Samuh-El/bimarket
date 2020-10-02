@@ -24,9 +24,12 @@ class AppRoutes {
     config() {
         this.router.get('/list-planes', appController_1.default.listPlanes);
         this.router.post('/send-email', appController_1.default.sendEmail);
+        this.router.post('/send-email-compra-to-cliente', appController_1.default.sendEmailCompratoCliente);
+        this.router.put('/delete-email-in-db/:id', appController_1.default.deleteEmailInDb);
         this.router.put('/update-plan/:id', appController_1.default.updatePlan);
         this.router.post('/signin', appController_1.default.signin);
         this.router.get('/get-usuario/:id', appController_1.default.getUsuario);
+        this.router.get('/get-info-correos', appController_1.default.getInfoCorreos);
     }
 }
 const appRoutes = new AppRoutes();
