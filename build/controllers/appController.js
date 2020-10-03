@@ -47,14 +47,14 @@ class AppController {
     sendEmail(req, res) {
         console.log('llego al service nodejs');
         var contentHTML;
-        // var correoDestino: string = 'gerencia@bimarketchile.cl';
-        var correoDestino = 'felipe.ascencio@virginiogomez.cl';
+        var correoDestino = 'gerencia@bimarketchile.cl';
+        // var correoDestino:string='felipe.ascencio@virginiogomez.cl';
         const { Empresa, RutEmpresa, Website, Direccion, NombreRepLegal, RutRepLegal, Cargo, MailContacto, Telefono, CupoSolicitado, Mensaje } = req.body;
         contentHTML = `
           Solicitud Apertura Cuenta Cliente
           Empresa: ${Empresa}
           Rut Empresa: ${RutEmpresa}
-          Website: ${Website}
+          Website: ${Website} 
           Direccion: ${Direccion}
           Nombre Rep Legal: ${NombreRepLegal}
           Rut Rep Legal: ${RutRepLegal}
@@ -203,9 +203,9 @@ class AppController {
                                    </span>
                            </div>
                        </div>
-                       <div class="row mt-2">
+                       <div class="row mt-2" style="border-top:25px;">
                            <div class="col-12 col-lg-7">
-                               <span class="size-p">Gracias por su confianza en BiMarketChile</span>
+                               <span class="size-p">Gracias por su confianza en BiMarketChile.</span>
                            </div>
                        </div>
                </body>
