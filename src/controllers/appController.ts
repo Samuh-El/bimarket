@@ -104,7 +104,7 @@ class AppController {
                  <style>
                    .fondo
                {
-               background: url('https://pruebas.genbuproducciones.com/Imagenes/fondoCorreo2.png') no-repeat top center fixed;
+               background: url('http://bimarketchile.cl/Imagenes/fondoCorreo2.png') no-repeat top center fixed;
                -webkit-background-size: cover;
                -moz-background-size: cover;
                -o-background-size: cover;
@@ -173,10 +173,10 @@ class AppController {
                
                     <div class="row mb-4">
                         <div class="col-12 col-md-6 col-lg-3">
-                            <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png"
+                            <img width="50%" height="auto" src="http://bimarketchile.cl/Imagenes/Logo-blanco.png"
                                 alt="">
                             <img style="margin-left:50px" width="28%" height="auto"
-                                src="https://pruebas.genbuproducciones.com/Imagenes/1.png" alt="">
+                                src="http://bimarketchile.cl/Imagenes/1.png" alt="">
                         </div>
             
                     </div>
@@ -252,15 +252,15 @@ class AppController {
           var correoDestino: string = correo;
 console.log('correoDestino= '+correoDestino)
           if (idPlan == 0) {
-               rutaContrato = "https://pruebas.genbuproducciones.com/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf"
+               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf"
           }
 
           if (idPlan == 1) {
-               rutaContrato = "https://pruebas.genbuproducciones.com/PDF/Contrato%20E-Commerce%20&%20Transformacio%cc%81n.pdf%20Digital.pdf"
+               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20E-Commerce%20&%20Transformacio%cc%81n.pdf%20Digital.pdf"
           }
 
           if (idPlan == 2) {
-               rutaContrato = "https://pruebas.genbuproducciones.com/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf"
+               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf"
 
           }
 
@@ -286,7 +286,7 @@ console.log('correoDestino= '+correoDestino)
           
               <style>
                   .fondo {
-                      background: url('https://pruebas.genbuproducciones.com/Imagenes/imagenCorreo.png') no-repeat top center fixed;
+                      background: url('http://bimarketchile.cl/Imagenes/imagenCorreo.png') no-repeat top center fixed;
                       -webkit-background-size: cover;
                       -moz-background-size: cover;
                       -o-background-size: cover;
@@ -356,12 +356,12 @@ console.log('correoDestino= '+correoDestino)
           
                   <div class="row mb-4">
                       <div class="col-12 col-md-6 col-lg-3">
-                          <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png"
+                          <img width="50%" height="auto" src="http://bimarketchile.cl/Imagenes/Logo-blanco.png"
                               alt="">
                           <img style="margin-left:50px" width="28%" height="auto"
-                              src="https://pruebas.genbuproducciones.com/Imagenes/1.png" alt="">
+                              src="http://bimarketchile.cl/Imagenes/1.png" alt="">
                       </div>
-          
+           
                   </div>
                   <div class="row mt-5">
                       <div class="col-12 col-lg-6 offset-lg-2 mb-4">
@@ -428,7 +428,7 @@ console.log('correoDestino= '+correoDestino)
                requireTLS: true,
                auth: {
                     user: 'noreplyBimarketchile@gmail.com',
-                    pass: 'bimaR3344'
+                    pass: 'bimaR3344' 
                }
           });
 
