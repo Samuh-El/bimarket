@@ -5,10 +5,10 @@
   "main": "index.js",
   "engines": {
     "node": "12.16.x"
-  },  
+  },   
   "scripts": { 
      
-    "start": "node build/index.js" 
+    "start": "node build/index.js"  
     
   },
   "keywords": [],

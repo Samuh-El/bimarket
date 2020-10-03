@@ -61,15 +61,15 @@ class AppController {
                secure: false,
                requireTLS: true,
                auth: {
-                    user: 'noreply@bimarketchile.cl',
-                    pass: 'j#nq50Ouw{?b'
+                    user: 'noreplyBimarketchile@gmail.com',
+                    pass: 'bimaR3344'
                }
           });
 
           console.log('paso del transporter')
 
           let mailOptions = {
-               from: 'noreply@bimarketchile.cl',
+               from: 'noreplyBimarketchile@gmail.com',
                to: correoDestino,
                subject: 'Solicitud Apertura Cuenta Pyme : ' + Empresa,
                text: contentHTML
@@ -216,13 +216,13 @@ class AppController {
                     secure: false,
                     requireTLS: true,
                     auth: {
-                         user: 'noreply@bimarketchile.cl',
-                         pass: 'j#nq50Ouw{?b'
+                         user: 'noreplyBimarketchile@gmail.com',
+                         pass: 'bimaR3344'
                     }
                });
 
                let mailOptions = {
-                    from: 'noreply@bimarketchile.cl',
+                    from: 'noreplyBimarketchile@gmail.com',
                     to: correoDestino,
                     subject: 'Comprobante recepción de formulario por BiMarketChile',
                     html: contentHTML
@@ -427,15 +427,15 @@ console.log('correoDestino= '+correoDestino)
                secure: false,
                requireTLS: true,
                auth: {
-                    user: 'noreply@bimarketchile.cl',
-                    pass: 'j#nq50Ouw{?b'
+                    user: 'noreplyBimarketchile@gmail.com',
+                    pass: 'bimaR3344'
                }
           });
 
           console.log('antes del transporter')
 
           let mailOptions = {
-               from: 'noreply@bimarketchile.cl',
+               from: 'noreplyBimarketchile@gmail.com',
                to: correoDestino,
                subject: 'Comprobante de compra de plan',
                html: contentHTML
@@ -485,13 +485,13 @@ console.log('correoDestino= '+correoDestino)
                secure: false,
                requireTLS: true,
                auth: {
-                    user: 'noreply@bimarketchile.cl',
-                    pass: 'j#nq50Ouw{?b'
-               } 
+                    user: 'noReplyNodo@gmail.com',
+                    pass: 'soyunaprueba' 
+               }
           });
 
           let mailOptions = {
-               from: 'noreply@bimarketchile.cl',
+               from: 'noReplyNodo@gmail.com',
                to: correoDestino,
                subject: 'Comprobante recepción de su formulario..',
                html: contentHTML
