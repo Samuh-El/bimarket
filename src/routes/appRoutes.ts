@@ -28,7 +28,7 @@ class AppRoutes {
           this.router.get('/list-planes', appController.listPlanes);
           this.router.post('/send-email',appController.sendEmail);
           this.router.post('/send-email-compra-to-cliente',appController.sendEmailCompratoCliente); 
-          this.router.put('/delete-email-in-db/:id', appController.deleteEmailInDb);
+          this.router.put('/delete-email-in-db/:id', appController.deleteEmailInDb); 
           this.router.put('/update-plan/:id', appController.updatePlan);
           this.router.post('/signin', appController.signin);
           this.router.get('/get-usuario/:id', appController.getUsuario);

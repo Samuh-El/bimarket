@@ -47,8 +47,8 @@ class AppController {
     sendEmail(req, res) {
         console.log('llego al service nodejs');
         var contentHTML;
-        var correoDestino = 'gerencia@bimarketchile.cl';
-        // var correoDestino:string='felipe.ascencio@virginiogomez.cl';
+        // var correoDestino: string = 'gerencia@bimarketchile.cl';
+        var correoDestino = 'felipe.ascencio@virginiogomez.cl';
         const { Empresa, RutEmpresa, Website, Direccion, NombreRepLegal, RutRepLegal, Cargo, MailContacto, Telefono, CupoSolicitado, Mensaje } = req.body;
         contentHTML = `
           Solicitud Apertura Cuenta Cliente
@@ -93,7 +93,6 @@ class AppController {
             var correoDestino = MailContacto;
             contentHTML = `<!doctype html>
                <html lang="en">
-               
                <head>
                  <meta charset="utf-8">
                  <title>BI Market Chile</title>
@@ -119,23 +118,55 @@ class AppController {
                z-index: 0 !important;
                } 
                
-               /* Extra small devices (phones, 600px and down) */
-               @media only screen and (max-width: 767px) {
-               
-               .size-p{
-                font-size: 4vw !important; 
-               }
-               
-               .margen-boton{
-               margin-top: 50px;
-               }
-               
-               .alinear-boton{
-               text-align: center;
-               }
-               
-               
-               }
+               @media only screen and (min-width:401px) {
+          
+          .size-p-titulo {
+              font-size: 26px !important;
+          }
+
+          .size-p {
+              font-size: 22px !important;
+          }
+
+          .margen-boton {
+              margin-top: 50px;
+          }
+
+          .alinear-boton {
+              text-align: center;
+          }
+
+          .width-boton{
+              width: 40%;
+          }
+
+
+      }
+
+      @media only screen and (min-width:0px) and (max-width: 400px) {
+
+          .size-p-titulo {
+              font-size: 23px !important;
+          }
+
+          .size-p {
+              font-size: 20px !important;
+          }
+
+          .margen-boton {
+              margin-top: 50px;
+          }
+
+          .alinear-boton {
+              text-align: center;
+          }
+
+          .width-boton{
+              width: 70%;
+          }
+
+
+      }
                </style>
                
                </head>
@@ -143,15 +174,19 @@ class AppController {
                <body>
                    <div class="fondo p-5" style="color:white;font-size: 2vw;text-align: justify;padding: 30px;">
                
-                       <div class="row mb-4">
-                           <div class="col-12 col-md-6 col-lg-3">
-                               <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png" alt="">
-                           </div>
-                       </div>
+                    <div class="row mb-4">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png"
+                                alt="">
+                            <img style="margin-left:50px" width="28%" height="auto"
+                                src="https://pruebas.genbuproducciones.com/Imagenes/1.png" alt="">
+                        </div>
+            
+                    </div>
                        <div class="row">
                            <div class="col-12 col-lg-6 offset-lg-2 mb-4">
-                               <p class="size-p">¡Tu solicitud de apertura de cuenta ha sido cursada!
-                               </p>
+                               <p class="size-p-titulo">¡Tu solicitud de apertura de cuenta ha sido cursada!
+                               </p> 
                            </div>
                            <div class="col-12 col-lg-10">
                                <span class="size-p">BiMarketChile permite a las pymes financiar, pagar y contratar en línea 
@@ -165,7 +200,12 @@ class AppController {
                        <div class="row mt-4">
                            <div class="col-12 col-lg-7">
                                <span class="size-p">Tu respuesta será enviada a tu e-mail dentro de las próximas 72 horas hábiles.
-                                   Gracias por su confianza en BiMarketChile</span>
+                                   </span>
+                           </div>
+                       </div>
+                       <div class="row mt-2">
+                           <div class="col-12 col-lg-7">
+                               <span class="size-p">Gracias por su confianza en BiMarketChile</span>
                            </div>
                        </div>
                </body>
@@ -218,103 +258,156 @@ class AppController {
         }
         contentHTML = `<!doctype html>
           <html lang="en">
-          
           <head>
-            <meta charset="utf-8">
-            <title>BI Market Chile</title>
-            <base href="/">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="icon" type="image/x-icon" href="assets/FAVICON.png">
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+              <meta charset="utf-8">
+              <title>BI Market Chile</title>
+              <base href="/">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <link rel="icon" type="image/x-icon" href="assets/FAVICON.png">
+              <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+                  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+              <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                  crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                  crossorigin="anonymous"></script>
+              <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+                  crossorigin="anonymous"></script>
           
-            <style>
-              .fondo
-          {
-          background: url('https://pruebas.genbuproducciones.com/Imagenes/imagenCorreo.png') no-repeat top center fixed;
-          -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-          background-size: cover;
-          min-height: 100vh;
-          overflow-x: hidden;
-          overflow-y: hidden;
-          z-index: 0 !important;
-          } 
+              <style>
+                  .fondo {
+                      background: url('https://pruebas.genbuproducciones.com/Imagenes/imagenCorreo.png') no-repeat top center fixed;
+                      -webkit-background-size: cover;
+                      -moz-background-size: cover;
+                      -o-background-size: cover;
+                      background-size: cover;
+                      min-height: 100vh;
+                      overflow-x: hidden;
+                      overflow-y: hidden;
+                      z-index: 0 !important;
+                  }
           
-          /* Extra small devices (phones, 600px and down) */
-          @media only screen and (max-width: 767px) {
+                  /* Extra small devices (phones, 600px and down) */
+                  @media only screen and (min-width:401px) {
           
-          .size-p{
-           font-size: 4vw !important; 
-          }
+                      .size-p-titulo {
+                          font-size: 26px !important;
+                      }
           
-          .margen-boton{
-          margin-top: 50px;
-          }
+                      .size-p {
+                          font-size: 22px !important;
+                      }
           
-          .alinear-boton{
-          text-align: center;
-          }
+                      .margen-boton {
+                          margin-top: 50px;
+                      }
+          
+                      .alinear-boton {
+                          text-align: center;
+                      }
+          
+                      .width-boton{
+                          width: 40%;
+                      }
           
           
-          }
-          </style>
+                  }
+          
+                  @media only screen and (min-width:0px) and (max-width: 400px) {
+          
+                      .size-p-titulo {
+                          font-size: 23px !important;
+                      }
+          
+                      .size-p {
+                          font-size: 20px !important;
+                      }
+          
+                      .margen-boton {
+                          margin-top: 50px;
+                      }
+          
+                      .alinear-boton {
+                          text-align: center;
+                      }
+          
+                      .width-boton{
+                          width: 70%;
+                      }
+          
+          
+                  }
+              </style>
           
           </head>
           
           <body>
-              <div class="fondo p-5" style="color:white;font-size: 2vw;text-align: justify;padding: 30px;">
+              <div class="fondo p-5" style="color:white;font-size: 2vw;padding: 30px;">
           
                   <div class="row mb-4">
                       <div class="col-12 col-md-6 col-lg-3">
-                          <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png" alt="">
-                          <img style="margin-left:50px" width="28%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/1.png" alt="">
+                          <img width="50%" height="auto" src="https://pruebas.genbuproducciones.com/Imagenes/Logo-blanco.png"
+                              alt="">
+                          <img style="margin-left:50px" width="28%" height="auto"
+                              src="https://pruebas.genbuproducciones.com/Imagenes/1.png" alt="">
                       </div>
-                     
+          
                   </div>
                   <div class="row mt-5">
                       <div class="col-12 col-lg-6 offset-lg-2 mb-4">
-                          <p class="size-p"><span style="font-weight: bold;">Bienvenidos</span> al Mundo de Servicios <span style="font-weight: bold;">BiMarketChile</span>
+                          <p class="size-p-titulo"><span style="font-weight: bold;">Bienvenidos</span> al Mundo de Servicios <span
+                                  style="font-weight: bold;">BiMarketChile</span>
                           </p>
                       </div>
-                      <div class="col-12 col-lg-10">
+                      <div class="col-12 col-lg-10" style="text-align: justify">
                           <span class="size-p">Recibirás tu contrato personalizado en este mail en 72 horas hábiles <br>
-                           Tu Cuenta Empresa BiMarketChile, te permite contratar y financiar linea de Servicios en Marketing, E-Commerce y Transformación Digital.
-                       </span>
+                              Tu Cuenta Empresa BiMarketChile, te permite contratar y financiar linea de Servicios en Marketing,
+                              E-Commerce y Transformación Digital.
+                          </span>
                       </div>
-
+          
                   </div>
-                  
-                  <div class="row mt-4" style="margin-top: 20px;">
+          
+                  <div class="row mt-4" style="margin-top: 20px;text-align: justify">
                       <div class="col-12 col-lg-7">
                           <span class="size-p">Estamos siempre disponibles, comunícate con nosotros a</span>
                       </div>
                   </div>
-                  <div class="row mt-4"style="margin-top: 20px;">
-                   <div class="col-12 col-lg-7">
-                       <span class="size-p"><a style="color: white;">gerencia@bimarketchile.cl</a></span>
-                   </div>
-               </div>
-               <div class="row mt-4" style="margin-top: 20px;">
-                   <div class="col-12 col-lg-7">
-                       <span class="size-p">Telefono +56972186190</span>
-                   </div>
-               </div>
-               <div class="row mt-4" style="margin-top: 20px;">
-                   <div class="col-12 col-lg-7">
-                       <span class="size-p">Solicita tus servicios de Marketing, E-Commerce y Transformación Digital Aquí</span>
-                   </div>
-               </div>
-               <div class="row mt-4" style="text-align: center;margin-top: 20px;">
-                   <div class="col-12 col-lg-7">
-                      <a href="` + rutaContrato + `"><button class="btn btn-danger" style="padding: 10px;color: white;background-color: #DC351F;font-weight: bold;border:0">Solicitud de Servicios Aquí</button></a> 
-                   </div>
-               </div>
+                  <div class="row mt-4" style="margin-top: 20px;text-align: justify">
+                      <div class="col-12 col-lg-7">
+                          <span class="size-p"><a style="color: white;">gerencia@bimarketchile.cl</a></span>
+                      </div>
+                  </div>
+                  <div class="row mt-4" style="margin-top: 20px;text-align: justify">
+                      <div class="col-12 col-lg-7">
+                          <span class="size-p">Telefono +56972186190</span>
+                      </div>
+                  </div>
+                  <div class="row mt-4" style="margin-top: 20px;text-align: justify">
+                      <div class="col-12 col-lg-7">
+                          <span class="size-p">Solicita tus servicios de Marketing, E-Commerce y Transformación Digital
+                              Aquí</span>
+                      </div>
+                  </div>
+                  <div class="row mt-4" style="text-align: center;margin-top: 20px;">
+                      <div class="col-12 col-lg-7">
+                          <a href="http://bimarketchile.cl/docs/Solicitud_Servicios_BimarketChile.docx"><button
+                                  class="btn btn-danger width-boton"
+                                  style="padding: 10px;color: white;background-color: #DC351F;font-weight: bold;border:0;">Solicitud
+                                  de Servicios Aquí</button></a>
+                      </div>
+                  </div>
+                  <div class="row mt-4" style="text-align: center;margin-top: 20px;">
+                      <div class="col-12 col-lg-7">
+                          <a href="` + rutaContrato + `"><button class="btn btn-danger width-boton"
+                                  style="padding: 10px;color: white;background-color: #DC351F;font-weight: bold;border:0;">Contrato
+                                  Anual</button></a>
+                      </div>
+                  </div>
           </body>
-           
+          
           </html>`;
         // console.log(contentHTML)
         let transporter = nodemailer.createTransport({
