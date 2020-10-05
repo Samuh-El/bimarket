@@ -9,7 +9,7 @@ export default{
          password:'J6AjVfQk981S',
          database:'bimarket_web',  
          
-  
+   
          //datos de conexion a localhost
           
          // host:'localhost', 

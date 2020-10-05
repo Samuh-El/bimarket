@@ -252,15 +252,15 @@ class AppController {
           var correoDestino: string = correo;
 console.log('correoDestino= '+correoDestino)
           if (idPlan == 0) {
-               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf"
+               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Dise%C3%B1o.pdf"
           }
 
           if (idPlan == 1) {
-               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20E-Commerce%20&%20Transformacio%cc%81n.pdf%20Digital.pdf"
-          }
+               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20E-Commerce%20&%20Transformaci%C3%B3n.pdf"
+          }   
 
-          if (idPlan == 2) {
-               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20Plan%20Marketin,%20Branding%20&%20Disen%cc%83o.pdf"
+          if (idPlan == 2) { 
+               rutaContrato = "http://bimarketchile.cl/PDF/Contrato%20Estrategias,%20Ventas%20e%20Innovaci%C3%B3n.pdf"
 
           }
 
