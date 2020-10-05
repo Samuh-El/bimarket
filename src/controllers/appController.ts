@@ -39,8 +39,8 @@ class AppController {
           var correoDestino: string = 'gerencia@bimarketchile.cl';
           // var correoDestino:string='felipe.ascencio@virginiogomez.cl';
           const { Empresa, RutEmpresa, Website, Direccion, NombreRepLegal, RutRepLegal, Cargo, MailContacto, Telefono, CupoSolicitado, Mensaje } = req.body;
-          contentHTML = `
-          Solicitud Apertura Cuenta Cliente
+          contentHTML = ` 
+          Solicitud Apertura Cuenta Cliente 
           Empresa: ${Empresa}
           Rut Empresa: ${RutEmpresa}
           Website: ${Website} 
